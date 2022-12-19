@@ -1,0 +1,17 @@
+<div class="row">      
+    <div class="col-md-3">
+      <app-search></app-search>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <app-smoothie-list></app-smoothie-list>
+    </div>
+    <div class="col-md-7">
+        <router-outlet></router-outlet>
+        <!--<app-smoothie-detail *ngIf="selectSmoothie;else infoText" [displaySmoothie]="selectSmoothie"></app-smoothie-detail>
+        <ng-template #infoText>
+            <p>Please select a Smoothie!!</p>
+        </ng-template>-->
+    </div>
+</div>

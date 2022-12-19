@@ -1,0 +1,33 @@
+<br>
+<br>
+<table class="table caption-top">
+    <caption>Cart Summary</caption>
+    <thead>
+      <tr>
+        <th scope="col">Item Details</th>
+        <th scope="col" class="align-middle text-center">Quantity</th>
+        <th scope="col" class="align-middle text-center">Price</th>
+        <th scope="col" class="align-middle text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="cartItems.length>0;else infoText">
+      <tr *ngFor="let cartItem of cartItems">
+        <td>
+            <app-shopping-edit [currentCartItem]="cartItem"></app-shopping-edit>
+        </td>
+        <td class="align-middle text-center">
+            {{cartItem.quantity}}
+        </td>
+        <td class="align-middle text-center">
+            {{cartItem.price | currency: 'EUR' }}
+        </td>
+        <td class="align-middle text-center">
+             <a style="cursor: pointer" (click)="removeItem(cartItems.indexOf(cartItem))"><span class="glyphicon glyphicon-remove" style="color: red">Remove</span></a>
+        </td>
+      </tr>
+    </tbody>    
+</table>
+
+<ng-template #infoText>
+  <p>No Items Added to the Cart</p>
+</ng-template>

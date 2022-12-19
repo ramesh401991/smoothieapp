@@ -1,0 +1,139 @@
+<br>
+<div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-5 border rounded clearfix text-bg-light p-3">
+        <h5 class="title" style="text-align: center;color: dodgerblue;">Update Smoothie</h5>
+        <form [formGroup]="updateForm" (ngSubmit)="onUpdateSmoothie()">
+            <div class="row">
+                <div class="form-group">
+                    <label for="smoothieList">Select Smoothie</label>
+                    <select  formControlName="smoothieList" name="smoothieList" class="form-control" id="smoothieList" (change)="populateForm($event)">
+                        <option *ngFor="let smoothie of smoothieList" [ngValue]="smoothie.value" [value]="smoothie.value">
+                            {{ smoothie.viewValue }}
+                        </option>                        
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="smoothieName">Smoothie Name</label>
+                    <input type="text"
+                           id="smoothieName"
+                           class="form-control"
+                           name="smoothieName"
+                           formControlName="smoothieName">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="smoothieDesc">Smoothie Description</label>
+                    <textarea id="smoothieDesc"
+                              class="form-control"
+                              name="smoothieDesc"
+                              rows="6"
+                              formControlName="smoothieDesc">                    
+                    </textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="smoothiePrice">Smoothie Price per one Unit</label>
+                    <input type="number"
+                           id="smoothiePrice"
+                           class="form-control"
+                           name="smoothiePrice"
+                           formControlName="smoothiePrice">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="smoothieImagePath">Smoothie Image Path</label>
+                    <input type="url"
+                           id="smoothieImagePath"
+                           class="form-control"
+                           name="smoothieImagePath"
+                           formControlName="smoothieImagePath">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-xs-12">
+                    <img [src]="updateForm.get('smoothieImagePath').value" class="img-responsive">
+                </div>
+            </div>
+            <h6 class="text-info">Nutrition Values</h6>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label for="proteinValue">Protein</label>
+                        </div>
+                        <div class="col-lg-5">
+                            <input type="number" 
+                                class="form-control"
+                                id="proteinValue"
+                                name="proteinValue"
+                                formControlName="proteinValue">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label for="fatsValue">Fats</label>
+                        </div>
+                        <div class="col-lg-5">
+                            <input type="number" 
+                                class="form-control"
+                                id="fatsValue"
+                                name="fatsValue"
+                                formControlName="fatsValue">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label for="carbsValue">Carbs</label>
+                        </div>
+                        <div class="col-lg-5">
+                            <input type="number" 
+                                class="form-control"
+                                id="carbsValue"
+                                name="carbsValue"
+                                formControlName="carbsValue">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label for="fiberValue">Fiber</label>
+                        </div>
+                        <div class="col-lg-5">
+                            <input type="number" 
+                                class="form-control"
+                                id="fiberValue"
+                                name="fiberValue"
+                                formControlName="fiberValue">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">                
+                <div class="form-group">                    
+                    <button class="btn btn-success fa-pull-right" type="submit">Update Smoothie</button>
+                    <button class="btn btn-danger fa-pull-right" type="button" routerLink="..">Cancel</button>
+                </div>                
+            </div>
+        </form>
+    </div>
+</div>

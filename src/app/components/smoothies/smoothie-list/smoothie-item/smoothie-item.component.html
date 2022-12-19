@@ -1,0 +1,9 @@
+<a class="border rounded list-group-item clearfix text-bg-light p-3" style="cursor: pointer;" [routerLink]="[index]" routerLinkActive="list-group-item-primary" >
+    <div class="float-start">
+        <p class="list-group-item-heading">{{smoothie.name}}</p>
+        <!--<p class="list-group-item-text">{{smoothie.description}}</p>-->
+    </div>
+    <span class="float-end">
+        <img src="{{ smoothie.imagePathUrl }}" alt="{{smoothie.name}}" class="img-responsive" style="max-height: 50px;">
+    </span>
+</a>

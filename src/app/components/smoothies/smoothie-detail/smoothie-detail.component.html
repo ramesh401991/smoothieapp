@@ -1,0 +1,48 @@
+
+<div class="row"  *ngIf="displaySmoothie">
+    <div class="col-xs-12">
+        <img src="{{ displaySmoothie.imagePathUrl }}" alt="{{displaySmoothie.name}}" class="img-responsive" style="max-height: 250px;">
+    </div>
+</div>
+<div class="row" *ngIf="displaySmoothie">
+    <div class="col-xs-12">
+        <h1>{{ displaySmoothie.name }}</h1>
+    </div>
+</div>
+<div class="row" *ngIf="displaySmoothie">
+    <div class="col-xs-12">
+        {{ displaySmoothie.description }}
+    </div>
+</div>
+<br>
+<div class="row" *ngIf="displaySmoothie">
+    <div class="col-xs-12">
+        <b>Price: </b> {{ displaySmoothie.unitPrice | currency: 'EUR' }}
+    </div>
+</div>
+<br>
+<div class="row" *ngIf="displaySmoothie">
+    <div class="col-xs-12">
+        <p>Nutritions Values: </p>
+        <ul class="list-group" *ngIf="displaySmoothie.nutrition;else infoText">
+            <li class="list-group-item" > Protein - {{ displaySmoothie.nutrition.protein }}</li>
+            <li class="list-group-item" > Fats - {{ displaySmoothie.nutrition.fats }}</li>
+            <li class="list-group-item" > Carbs - {{ displaySmoothie.nutrition.carbs }}</li>
+            <li class="list-group-item" > Fiber - {{ displaySmoothie.nutrition.fiber }}</li>
+       </ul> 
+       <ng-template #infoText>
+            <ul class="list-group">
+                <li class="list-group-item" > Protein - Unable to Load Value</li>
+                <li class="list-group-item" > Fats - Unable to Load Value</li>
+                <li class="list-group-item" > Carbs - Unable to Load Value</li>
+                <li class="list-group-item" > Fiber - Unable to Load Value</li>
+            </ul>
+       </ng-template>
+    </div>
+</div>
+<br>
+<div class="row" *ngIf="displaySmoothie">
+    <div class="col-xs-12">
+        <a class="btn btn-secondary fa-pull-right" (click)="addToShoppingCart()" style="cursor: pointer;">Add To Cart</a>
+    </div>
+</div>
